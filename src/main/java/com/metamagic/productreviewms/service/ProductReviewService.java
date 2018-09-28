@@ -23,11 +23,11 @@ public class ProductReviewService {
 	
 	public Collection<ProductReview> getProductReview(String id){
 		final List<ProductReview> productreview = new ArrayList<ProductReview>();
-		productreview.add(new ProductReview("1", "Ketan Gote", "Very Good, value for money", Integer.valueOf(1)));
-		productreview.add(new ProductReview("1", "Sagar Jadhav", "Average Phone", Integer.valueOf(1)));
-		productreview.add(new ProductReview("1", "Dattaram Gawas", "Good", Integer.valueOf(1)));
-		productreview.add(new ProductReview("1", "Deepali Arvind", "Bad", Integer.valueOf(1)));
-		productreview.add(new ProductReview("1", "Kedar Kokil", "Very Bad, not value for money", Integer.valueOf(1)));
+		productreview.add(new ProductReview(id, "Ketan Gote", "Very Good, value for money", Integer.valueOf(9)));
+		productreview.add(new ProductReview(id, "Sagar Jadhav", "Average Phone", Integer.valueOf(5)));
+		productreview.add(new ProductReview(id, "Dattaram Gawas", "Good", Integer.valueOf(3)));
+		productreview.add(new ProductReview(id, "Deepali Arvind", "Bad", Integer.valueOf(4)));
+		productreview.add(new ProductReview(id, "Kedar Kokil", "Very Bad, not value for money", Integer.valueOf(1)));
 		
 		return productreview;
 	}
