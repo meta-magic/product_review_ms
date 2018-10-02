@@ -31,3 +31,9 @@ spec:
           imagePullPolicy: Always
           ports:
           - containerPort: 8082
+          livenessProbe:
+            httpGet:
+              path: /productreviewms/check/live
+              port: 8082
+            initialDelaySeconds: 15
+            periodSeconds: 15          
