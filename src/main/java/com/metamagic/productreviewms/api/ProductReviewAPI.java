@@ -25,8 +25,9 @@ public class ProductReviewAPI {
 	
 
 	@GetMapping(value = "/timeout/{id}")
-	public ResponseEntity<Collection<ProductReview>> reviewByIdAndTimeout(@PathVariable("id") String id){
+	public ResponseEntity<Collection<ProductReview>> reviewByIdAndTimeout(@PathVariable("id") String id) throws InterruptedException{
 		System.out.println("Product Review reviewById  "+new Date());
+		Thread.sleep(50000);
 		return new ResponseEntity<Collection<ProductReview>>(ProductReviewService.getInstance().getProductReview(id), HttpStatus.OK);
 	}
 
