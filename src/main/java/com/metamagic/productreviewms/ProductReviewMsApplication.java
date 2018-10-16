@@ -7,6 +7,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 
 import com.metamagic.productreviewms.dto.VersionInfo;
+import com.uber.jaeger.Configuration;
+import com.uber.jaeger.samplers.ProbabilisticSampler;
 
 @SpringBootApplication
 public class ProductReviewMsApplication extends SpringBootServletInitializer{
@@ -30,6 +32,14 @@ public class ProductReviewMsApplication extends SpringBootServletInitializer{
 		}
 		return new VersionInfo(version);
 	}
+	
+	@Bean
+	public io.opentracing.Tracer jaegerTracer() {
+	    return new Configuration("productreviewms", new Configuration.SamplerConfiguration(ProbabilisticSampler.TYPE, 1),
+	        new Configuration.ReporterConfiguration())
+	        .getTracer();
+	    }
+	
 
 }
 
