@@ -43,7 +43,7 @@ public class ProductReviewMsApplication extends SpringBootServletInitializer{
 	
 	@Bean
 	  public io.opentracing.Tracer jaegerTracer() {
-	    Builder builder = new Builder("spring-boot",
+	    Builder builder = new Builder("productreviewms",
 	        new RemoteReporter(new HttpSender("http://jaeger-collector.istio-system:14268/api/traces"), 10,
 	        65000, new Metrics(new StatsFactoryImpl(new NullStatsReporter()))),
 	        new ConstSampler(true))
